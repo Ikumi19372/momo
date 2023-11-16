@@ -171,49 +171,21 @@ p{
 }
 
 
-/*========= 1文字ずつ出現させるためのCSS ===============*/
-
-.eachTextAnime span{opacity: 0;}
-.eachTextAnime.appeartext span{ animation:text_anime_on 1s ease-out forwards; }
-@keyframes text_anime_on {
-  0% {opacity:0;}
-  100% {opacity:1;}
+/*===========下からフェードイン============*/
+.fade-in-text {
+  position: relative;
+  font-size: 24px;
+  opacity: 0; /* 初めは透明に設定 */
+  transform: translateY(100%); /* 下からスライドするために位置を下に設定 */
+  animation: fadeInFromBottom 4s forwards; /* フェードインアニメーションの設定 */
 }
 
-
-
-.blur{
-  animation-name:blurAnime;
-  animation-duration:1s;
-  animation-fill-mode:forwards;
-}
-
-@keyframes blurAnime{
-  from {
-  filter: blur(10px);
-  transform: scale(1.02);
-  opacity: 0;
-  }
-
+@keyframes fadeInFromBottom {
   to {
-  filter: blur(0);
-  transform: scale(1);
-  opacity: 1;
+    opacity: 1; /* アニメーション終了時に完全に表示 */
+    transform: translateY(0); /* アニメーション終了時の位置 */
   }
 }
- 
-.blurTrigger{
-    opacity: 0;
-}
-
-
-.gnavi{
-    display: flex;
-    flex-wrap: wrap;/*スマホ表示折り返し用なのでPCのみなら不要*/
-    margin:0 0 50px 0;
-    list-style: none;
-}
-
 
 
 /*==================================================
